@@ -1,0 +1,49 @@
+\documentclass[letterpaper, egregdoesnotlikesansseriftitles]{scrartcl}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[style=ieee]{biblatex}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{luatexja-fontspec}
+\usepackage{luatexja}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+
+\tcbuselibrary{skins}
+\usetikzlibrary{calc}
+
+\definecolor{pride1}{RGB}{136,205,248}
+\definecolor{pride2}{RGB}{226,168,182}
+\tcbset{pride/.style={enhanced,hbox,colback=white,
+underlay={\begin{tcbclipinterior}
+\fill[pride1] let \p1=($(interior.north)-(interior.south)$) in
+foreach \X in {1,5}
+{([yshift={\X*\y1/5}]interior.south west) rectangle 
+([yshift={(\X-1)*\y1/5}]interior.south east)};
+\fill[pride2] let \p1=($(interior.north)-(interior.south)$) in
+foreach \X in {2,4}
+{([yshift={\X*\y1/5}]interior.south west) rectangle 
+([yshift={(\X-1)*\y1/5}]interior.south east)};
+\end{tcbclipinterior}}},
+tight/.style={on
+line,boxsep=0pt,left=#1,right=#1,top=#1,bottom=#1,arc=0pt,boxrule=0pt},
+tight/.default=0pt}
+
+
+\begin{document}
+
+\title{Seven Gamers, One MCU}
+\subtitle{A ``stable'', ``performant'', ``intuitive'' ``multitasking'' ``framework'' for AVR Microcontrollers}
+\author{\begin{tcolorbox}[tight, pride]Erina\end{tcolorbox} Thapa\footnote{Yes, I am the same person who did that Vocaloid paper last year, I'm just trans now.} \\ \href{mailto:notsmart98@gmail.com}{notsmart98@gmail.com} \\ \href{https://m.ggrks.moe/@yoyo}{@yoyo@m.ggrks.moe}}
+
+\maketitle
+
+\begin{abstract}
+    \lipsum[1]
+\end{abstract}
+
+\section{Introduction}
+    \lipsum{}
+
+
+\end{document}
